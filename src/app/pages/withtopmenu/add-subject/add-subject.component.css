@@ -1,0 +1,33 @@
+.register-page{
+    text-align: center;
+}
+
+table, th, td {
+    margin: 10px ;
+    border: 1px #ddd solid;
+    border-collapse: collapse;
+    
+  }
+ 
+  th,td{
+    vertical-align: center;
+    padding: 15px
+  }
+
+  .add-form{
+      width: 100%;
+
+
+  }
+  .as{
+      margin: 0 auto;
+      border: none;
+  }
+
+  .btn-in-table{
+      width: 100%;
+  }
+  tr{
+
+  }
+
