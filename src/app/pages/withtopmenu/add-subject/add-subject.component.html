@@ -5,7 +5,7 @@
     <button type="submit" *ngIf="sectionHold.length == 0" (click)="onSubmit()">Submit</button>
     <div *ngIf="sectionHold.length != 0">
       <mat-form-field  appearance="fill">
-        <mat-label>เลือกตอนเรียน</mat-label>
+        <mat-label>เลือกตอนเรียน1</mat-label>
         <mat-select formControlName="sectionSelect">
           <mat-option *ngFor="let food of sectionHold" [value]="food">
             {{food}}
