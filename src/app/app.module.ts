@@ -12,13 +12,21 @@ import {TableModule} from 'primeng/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs'; 
+import { OlddataComponent } from './pages/withtopmenu/olddata/olddata.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { TeachertableComponent } from './pages/withtopmenu/teachertable/teachertable.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     TopComponent,
     FirstPageComponent,
     HowtopageComponent,
-    AddSubjectComponent
+    AddSubjectComponent,
+    OlddataComponent,
+    TeachertableComponent
 
   ],
   imports: [
@@ -29,7 +37,9 @@ import {MatSelectModule} from '@angular/material/select';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTabsModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,13 @@
+<app-top></app-top>
+<div>
+    <form [formGroup]="olddataForm">
+        <h4>เลือกปีการศึกษา</h4>
+            <select formControlName="semester"  >
+                <option value="2564">ปีการศึกษา 2564</option>
+                <option value="2563">ปีการศึกษา 2563</option>
+                <option value="2562">ปีการศึกษา 2562</option>
+            </select>
+         
+        <button type="submit"  (click)="onSubmit()">Submit</button>
+    </form>
+</div>

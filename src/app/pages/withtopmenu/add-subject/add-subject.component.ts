@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup ,Validators } from '@angular/forms';
-import { AddSubjectClass } from './add-subject-class';
 import { AddSubjectService } from './add-subject.service';
-import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-add-subject',
