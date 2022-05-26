@@ -8,30 +8,49 @@ import { AddSubjectService } from './add-subject.service';
   styleUrls: ['./add-subject.component.css']
 })
 export class AddSubjectComponent implements OnInit {
-
+  state!:any;
   studentClass: any[] = [];
   subjectHold:any[] = [];
   sectionHold:string[] = [];
-  
+  termlist:string[] = [];
+  Term!:any;
+  EventMsg!:string;
 
   addsubjectForm!:FormGroup
-  constructor(private fb:FormBuilder,private AddSubjectService:AddSubjectService) { 
+  constructor(private fb:FormBuilder,private AddSubjectService:AddSubjectService) {
     this.addsubjectForm = this.fb.group({
       subject_id : ['',[Validators.required, Validators.pattern("^[0-9]*$"),Validators.maxLength(9),Validators.minLength(9)]],
       sectionSelect : ['',[Validators.required]]
     })
   }
 
-  ngOnInit(): void {}
+  async ngOnInit():Promise<void> {
+    const check = (await this.AddSubjectService.checkTerm());
+    if(check.length !== 0){
+      this.Term = check[0];
+      const check1 = (await this.AddSubjectService.registered(this.Term.semester_id ));
+      if(check1.length === 0){
+        this.state = true;
 
-  save(){  
+        return;
+      }else{
+        this.EventMsg = "คุณลงทะเบียนไปแล้ว"
+      }
+    }else{
+      this.EventMsg = "ขณะนี้ไม่ใช่เวลาลงทะเบียน"
+    }
+    this.state = false;
+  }
+
+  async save(){
     if(this.studentClass.length !== 0){
       const send =  this.studentClass.map((value,i)=>{
-        const {subject_id ,subject_section} = value;
-        return { subject_id ,subject_section};
+        const {class_id } = value;
+        return class_id;
       })
       console.log(send)
-      this.AddSubjectService.saveStudent(send)
+      const result = await this.AddSubjectService.saveStudent(send,this.Term.semester_id)
+      console.log( result )
       alert("ลงทะเบียนเรียนสำเร็จ")
       document.location.href = "home";
     }else{
@@ -48,13 +67,13 @@ export class AddSubjectComponent implements OnInit {
     this.studentClass.push(this.subjectHold.filter((value)=>value.subject_section === s)[0])
     this.cancel();
     console.log(this.studentClass);
-    
+
   }
 
   cancel(){
     this.addsubjectForm.reset();
-    this.sectionHold = []; 
-    this.subjectHold = []; 
+    this.sectionHold = [];
+    this.subjectHold = [];
   }
 
 
@@ -66,8 +85,8 @@ export class AddSubjectComponent implements OnInit {
         this.subjectHold = data;
         this.sectionHold = (data.map((value,i)=>{
           return value.subject_section
-        })) 
-        
+        }))
+
       }else{
         this.sectionHold = [];
         this.subjectHold = [];
@@ -78,9 +97,9 @@ export class AddSubjectComponent implements OnInit {
       alert(this.addsubjectForm.value.subject_id+" is duplicate.")
       this.cancel()
     }
-  
+
   }
 
 
-  
+
 }

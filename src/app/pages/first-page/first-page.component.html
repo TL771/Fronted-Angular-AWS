@@ -1,8 +1,9 @@
 <!--หน้าแรกไม่มีtop menu-->
 <div>
     <form [formGroup]="authForm">
+      <h1>Login</h1>
       <label>Username</label><input type="text" formControlName="username" /><br>
       <label>Password</label><input type="password" formControlName="password" /><br>
       <button type="submit" (click)="onSubmit()">Submit</button>
     </form>
-  </div>
+</div>

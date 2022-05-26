@@ -1,14 +1,19 @@
 <app-top></app-top>
-<div>
+<div *ngIf="state">
   <form [formGroup]="addsubjectForm">
-    <input type="text" placeholder="รหัสวิชา" formControlName="subject_id" />
-    <button type="submit" *ngIf="sectionHold.length == 0" (click)="onSubmit()">Submit</button>
+    <div class="form-group">
+      <div>เทอม {{Term.semester_numer}} ปีการศึกษา {{Term.semester_year}}</div>
+    </div>
+    <div class="inputAccess">
+      <input type="text" placeholder="รหัสวิชา" formControlName="subject_id" />
+      <button type="submit" *ngIf="sectionHold.length == 0" (click)="onSubmit()">Submit</button>
+    </div>
     <div *ngIf="sectionHold.length != 0">
       <mat-form-field  appearance="fill">
         <mat-label>เลือกตอนเรียน</mat-label>
         <mat-select formControlName="sectionSelect">
-          <mat-option *ngFor="let food of sectionHold" [value]="food">
-            {{food}}
+          <mat-option *ngFor="let section of sectionHold" [value]="section">
+            {{section}}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -39,5 +44,8 @@
       <td><button class="btn btn-danger" (click)="delete(b.subject_id)">Delete</button></td>
     </tr>
   </table>
-  <button (click)="save()">ลงทะเบียน</button>
+  <button class="submit-button" (click)="save()">ลงทะเบียน</button>
+</div>
+<div *ngIf="!state">
+  <h2>{{EventMsg}}</h2>
 </div>

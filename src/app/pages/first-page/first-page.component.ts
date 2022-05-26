@@ -9,7 +9,7 @@ import { FirstPageService } from './first-page.service';
   styleUrls: ['./first-page.component.css']
 })
 export class FirstPageComponent implements OnInit {
-  
+
   authForm!:FormGroup
   constructor(private fb:FormBuilder , private firstPageService:FirstPageService
   ) {
@@ -20,7 +20,7 @@ export class FirstPageComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log(this.firstPageService.checkkey())
+    this.firstPageService.checkkey()
   }
 
   async onSubmit(){

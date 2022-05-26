@@ -16,6 +16,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { OlddataComponent } from './pages/withtopmenu/olddata/olddata.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { TeachertableComponent } from './pages/withtopmenu/teachertable/teachertable.component';
+import { AddNewsubjectComponent } from './pages/add-newsubject/add-newsubject.component';
+import { DeleteSubjectComponent } from './pages/delete-subject/delete-subject.component';
+import { ChangeSectionComponent } from './pages/change-section/change-section.component';
 
 
 @NgModule({
@@ -26,7 +29,10 @@ import { TeachertableComponent } from './pages/withtopmenu/teachertable/teachert
     HowtopageComponent,
     AddSubjectComponent,
     OlddataComponent,
-    TeachertableComponent
+    TeachertableComponent,
+    AddNewsubjectComponent,
+    DeleteSubjectComponent,
+    ChangeSectionComponent
 
   ],
   imports: [

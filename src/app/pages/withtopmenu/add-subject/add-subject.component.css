@@ -1,3 +1,6 @@
+*{
+  text-align:center;
+}
 .register-page{
     text-align: center;
 }
@@ -6,9 +9,9 @@ table, th, td {
     margin: 10px ;
     border: 1px #ddd solid;
     border-collapse: collapse;
-    
+
   }
- 
+
   th,td{
     vertical-align: center;
     padding: 15px
@@ -27,7 +30,10 @@ table, th, td {
   .btn-in-table{
       width: 100%;
   }
-  tr{
 
+  table{
+    margin: 30px auto;
   }
-
+  .submit-button{
+    margin: 30px auto;
+  }
