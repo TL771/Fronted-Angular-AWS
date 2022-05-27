@@ -23,8 +23,11 @@ export class TeacherloginComponent implements OnInit {
 
   async login(){
     const result = await this.loginService.login(this.authForm.value);
-    if(!result.error){
+    if(!result){
       location.href = "teacher/main"
+    }else{
+      alert("ไม่พบข้อมูล")
+      location.reload()
     }
   }
 }

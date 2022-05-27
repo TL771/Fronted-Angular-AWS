@@ -19,6 +19,7 @@ export class TeacherloginService {
     )
     if(res.status === 200){
       if(res.data.error){
+        console.log(res.data.error)
         return res.data.error
       }
       localStorage.setItem('teacher-key-api',res.data.token);
