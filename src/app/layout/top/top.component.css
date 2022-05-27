@@ -1,9 +1,19 @@
 ul{
   display: flex;
-  align-items: center;
-  column-gap: 10px;
+  justify-content:flex-start;
+  column-gap: 20px;
+  flex-grow: 2;
 }
 
 li{
   list-style-type: none;
+}
+nav{
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.back-ul{
+  justify-content:center;
 }

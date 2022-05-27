@@ -19,8 +19,15 @@ export class FirstPageComponent implements OnInit {
     })
    }
 
-  ngOnInit(): void {
-    this.firstPageService.checkkey()
+  async ngOnInit(){
+    if(localStorage.getItem('key-api')){
+      const res =  await this.firstPageService.checkkey()
+      if(res){
+        document.location.href  =  "home"
+      }
+    }else{
+      console.log("You must login.");
+    }
   }
 
   async onSubmit(){

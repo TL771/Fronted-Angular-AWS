@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup ,Validators } from '@angular/forms';
 export class AddNewsubjectComponent implements OnInit {
 
   onThisTerm !: any;
-  mySubjectList!:any[];
+  mySubjectList:any[] = [];
   sumCredit:number = 0;
   selectOption:number = 0;
   selectAdd:number[] = [];
@@ -24,6 +24,10 @@ export class AddNewsubjectComponent implements OnInit {
   }
 
   async ngOnInit():Promise<void> {
+    if(!localStorage.getItem('key-api')){
+      document.location.href  =  "student-login"
+      console.log(localStorage.getItem('key-api'))
+    }
     const check = (await this.service2.getTerm());
     if(check.length !== 0){
       console.log(check)

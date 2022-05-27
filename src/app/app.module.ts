@@ -12,13 +12,15 @@ import {TableModule} from 'primeng/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
-import { MatTabsModule } from '@angular/material/tabs'; 
+import { MatTabsModule } from '@angular/material/tabs';
 import { OlddataComponent } from './pages/withtopmenu/olddata/olddata.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { TeachertableComponent } from './pages/withtopmenu/teachertable/teachertable.component';
 import { AddNewsubjectComponent } from './pages/add-newsubject/add-newsubject.component';
-import { DeleteSubjectComponent } from './pages/delete-subject/delete-subject.component';
-import { ChangeSectionComponent } from './pages/change-section/change-section.component';
+import { TeacherloginComponent } from './teacher/teacherlogin/teacherlogin.component';
+import { TeachercheckstudentComponent } from './teacher/teachercheckstudent/teachercheckstudent.component';
+import { TeachermainComponent } from './teacher/teachermain/teachermain.component';
+
 
 
 @NgModule({
@@ -31,9 +33,9 @@ import { ChangeSectionComponent } from './pages/change-section/change-section.co
     OlddataComponent,
     TeachertableComponent,
     AddNewsubjectComponent,
-    DeleteSubjectComponent,
-    ChangeSectionComponent
-
+    TeacherloginComponent,
+    TeachercheckstudentComponent,
+    TeachermainComponent
   ],
   imports: [
     BrowserModule,

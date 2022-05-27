@@ -5,7 +5,12 @@ import axios from 'axios';
   providedIn: 'root'
 })
 export class FirstPageService {
-  constructor() { }
+  headers!:any;
+  constructor() {
+    this.headers = {
+      'Authorization': 'Bearer ' + localStorage.getItem("key-api")
+    }
+  }
   async login(data:{username:string,password:string}):Promise<Boolean>{
     try{
       const res = await axios({
@@ -23,16 +28,6 @@ export class FirstPageService {
     }
   }
 
-  async getSubject(){
-    const res = await axios({
-      method: 'get',
-      url: 'http://localhost:3000/subjectall',
-      headers : {
-        'Authorization': 'Bearer ' + localStorage.getItem("key-api")
-      }
-    })
-    console.log(res.data)
-  }
 
   async checkkey(){
     try{
@@ -40,12 +35,13 @@ export class FirstPageService {
         {
           method: 'get',
           url: 'http://localhost:3000/profile',
-          headers : {
-            'Authorization': 'Bearer ' + localStorage.getItem("key-api")
-          }
+          headers : this.headers
         }
       )
-      return true
+      if(res.status === 200){
+        return true
+      }
+      return false
     }catch(e){
       return false;
     }

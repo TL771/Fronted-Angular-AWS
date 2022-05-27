@@ -25,6 +25,10 @@ export class AddSubjectComponent implements OnInit {
   }
 
   async ngOnInit():Promise<void> {
+    if(!localStorage.getItem('key-api')){
+      document.location.href  =  "student-login"
+      console.log(localStorage.getItem('key-api'))
+    }
     const check = (await this.AddSubjectService.checkTerm());
     if(check.length !== 0){
       this.Term = check[0];

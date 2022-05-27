@@ -10,6 +10,10 @@ export class HowtopageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    if(!localStorage.getItem('key-api')){
+      document.location.href  =  "student-login"
+      console.log(localStorage.getItem('key-api'))
+    }
   }
 
 }

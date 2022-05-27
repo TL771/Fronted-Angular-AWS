@@ -1,9 +1,14 @@
-<!--หน้าแรกไม่มีtop menu-->
 <div>
     <form [formGroup]="authForm">
-      <h1>Login</h1>
-      <label>Username</label><input type="text" formControlName="username" /><br>
-      <label>Password</label><input type="password" formControlName="password" /><br>
-      <button type="submit" (click)="onSubmit()">Submit</button>
+      <legend>Student Login</legend>
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input class="form-control" type="text" formControlName="username" /><br>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input class="form-control" type="password" formControlName="password" /><br>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="authForm.invalid" (click)="onSubmit()">Submit</button>
     </form>
 </div>

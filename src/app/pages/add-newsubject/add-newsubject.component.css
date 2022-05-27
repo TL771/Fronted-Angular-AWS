@@ -52,3 +52,12 @@ table, th, td {
 .select-option{
   margin: 30px 0;
 }
+
+.else{
+  width: 30%;
+  background-size: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%)
+}

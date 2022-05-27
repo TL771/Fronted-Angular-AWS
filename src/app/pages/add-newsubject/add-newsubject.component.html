@@ -1,4 +1,5 @@
 <app-top></app-top>
+<div *ngIf="mySubjectList.length !== 0">
 <h1 class="header" align="center">แก้ไขวิชาเรียน</h1>
 <table>
   <tr>
@@ -34,8 +35,8 @@
 
   <div class="super-form">
     <form [formGroup]="allForm" *ngIf="selectOption === 1">
-      <h3>เพิ่มวิชาเรียน</h3>
-      <p>รหัสวิชา </p><input formControlName="subject_id" type="text">
+      <h1>เพิ่มวิชาเรียน</h1>
+      <label>รหัสวิชา : </label><input formControlName="subject_id" type="text">
       <button (click)="submitsubjectId()">ยืนยัน รหัสวิชา</button>
       <div *ngIf="selectAdd.length !== 0">
         <p>ตอนเรียน </p>
@@ -48,11 +49,11 @@
     </form>
 
     <form [formGroup]="allForm" *ngIf="selectOption === 2">
-      <h3>เปลี่ยนตอนเรียน</h3>
-      <input type="text" formControlName="subject_id">
+      <h1>เปลี่ยนตอนเรียน</h1>
+      <label>รหัสวิชา : </label><input type="text" formControlName="subject_id">
       <button (click)="findInSubjectList()">ยืนยัน รหัสวิชา</button>
       <div *ngIf="selectAdd.length !== 0">
-        <h3>ตอนเรียน </h3>
+        <h1>ตอนเรียน </h1>
         <select class="select-option" formControlName="sectionSelect">
           <option value="" hidden>โปรดเลือกตอนเรียน</option>
           <option *ngFor="let g of selectAdd" [ngValue]="g">{{g}}</option>
@@ -62,11 +63,13 @@
     </form>
 
     <form [formGroup]="allForm" *ngIf="selectOption === 3">
-      <h3>ถอนวิชา</h3>
-      <input type="text" formControlName="subject_id">
+      <h1>ถอนวิชา</h1>
+      <label>รหัสวิชา : </label><input type="text" formControlName="subject_id">
       <button (click)="submitDelete()">ถอนวิชาเรียน</button>
     </form>
 
   </div>
 
 </div>
+</div>
+<h1 class="else" align="center" *ngIf="mySubjectList.length === 0">คุณยังไม่ได้ลงทะเบียน</h1>

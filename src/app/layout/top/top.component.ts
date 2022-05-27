@@ -11,5 +11,8 @@ export class TopComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  logout(){
+    console.log("logout");
+    localStorage.clear();
+  }
 }
